@@ -4,21 +4,21 @@ package com.alexside.dto;
  * Created by Alex on 07.05.2017.
  */
 public class TransferDTO {
-    private int senderId;
-    private int recipientId;
+    private String sender;
+    private String recipient;
     private double amount;
     private String description;
     public TransferDTO() {}
-    public TransferDTO(int senderId, int recipientId, double amount, String description) {
-        this.senderId = senderId;
-        this.recipientId = recipientId;
+    public TransferDTO(String sender, String recipient, double amount, String description) {
+        this.sender = sender;
+        this.recipient = recipient;
         this.amount = amount;
         this.description = description;
     }
-    public int getSenderId() { return senderId; }
-    public void setSenderId(int senderId) { this.senderId = senderId; }
-    public int getRecipientId() { return recipientId; }
-    public void setRecipientId(int recipientId) { this.recipientId = recipientId; }
+    public String getSender() { return sender; }
+    public void setSender(String sender) { this.sender = sender; }
+    public String getRecipient() { return recipient; }
+    public void setRecipient(String recipient) { this.recipient = recipient; }
     public double getAmount() { return amount; }
     public void setAmount(double amount) { this.amount = amount; }
     public String getDescription() { return description; }

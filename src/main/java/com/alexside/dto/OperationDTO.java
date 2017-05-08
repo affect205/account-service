@@ -6,13 +6,13 @@ package com.alexside.dto;
 public class OperationDTO {
     private long id;
     private String type;
-    private AccountDTO sender;
-    private AccountDTO recipient;
+    private String sender;
+    private String recipient;
     private long date;
     private double amount;
     private String description;
     public OperationDTO() {}
-    public OperationDTO(long id, String type, AccountDTO sender, AccountDTO recipient, long date, double amount, String description) {
+    public OperationDTO(long id, String type, String sender, String recipient, long date, double amount, String description) {
         this.id = id;
         this.type = type;
         this.sender = sender;
@@ -25,10 +25,10 @@ public class OperationDTO {
     public void setId(long id) { this.id = id; }
     public String getType() { return type; }
     public void setType(String type) { this.type = type; }
-    public AccountDTO getSender() { return sender; }
-    public void setSender(AccountDTO sender) { this.sender = sender; }
-    public AccountDTO getRecipient() { return recipient; }
-    public void setRecipient(AccountDTO recipient) { this.recipient = recipient; }
+    public String getSender() { return sender; }
+    public void setSender(String sender) { this.sender = sender; }
+    public String getRecipient() { return recipient; }
+    public void setRecipient(String recipient) { this.recipient = recipient; }
     public long getDate() { return date; }
     public void setDate(long date) { this.date = date; }
     public double getAmount() { return amount; }

@@ -14,12 +14,12 @@ import java.util.List;
  */
 @Component
 @Path("/account")
+@Produces(MediaType.APPLICATION_JSON+";charset=utf-8")
 public class AccountRest {
     @Autowired
     private AccountService accountService;
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
     @Path("/all")
     public List<AccountDTO> getAll() {
         List<AccountDTO> result = accountService.getAll();
@@ -27,7 +27,6 @@ public class AccountRest {
     }
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
     @Path("{number}")
     public AccountDTO getByNumber(@PathParam("number") @DefaultValue("") String number) {
         AccountDTO result = accountService.getByNumber(number);
