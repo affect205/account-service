@@ -1,3 +1,5 @@
+create DATABASE sber_db;
+
 CREATE TABLE account (
 id serial PRIMARY KEY,
 num CHARACTER VARYING unique NOT NULL,

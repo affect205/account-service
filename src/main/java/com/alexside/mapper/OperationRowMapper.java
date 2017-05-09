@@ -14,7 +14,7 @@ public class OperationRowMapper implements RowMapper<OperationDTO> {
     public OperationDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
         OperationDTO dto = new OperationDTO();
         dto.setId(rs.getInt("id"));
-        dto.setDate(rs.getDate("date").getTime());
+        dto.setDate(rs.getTimestamp("date").getTime());
         dto.setType(rs.getString("type"));
         dto.setSender(rs.getString("sender"));
         dto.setRecipient(rs.getString("recipient"));

@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Component
 @Path("/account")
-@Produces(MediaType.APPLICATION_JSON+";charset=utf-8")
+@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 public class AccountRest {
     @Autowired
     private AccountService accountService;
