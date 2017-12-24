@@ -7,10 +7,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
+import javax.ws.rs.ApplicationPath;
+
 /**
  * Created by Alex on 07.05.2017.
  */
 @Configuration
+@ApplicationPath("/api")
 public class JerseyConfig extends ResourceConfig {
     public JerseyConfig() {
         register(AccountRest.class);
