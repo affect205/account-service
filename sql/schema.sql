@@ -1,5 +1,7 @@
 create DATABASE sber_db;
 
+CREATE EXTENSION pgcrypto;
+
 CREATE TABLE account (
 id serial PRIMARY KEY,
 num CHARACTER VARYING unique NOT NULL,
@@ -35,3 +37,16 @@ INSERT INTO operation(operation_type, sender_id, recipient_id, operation_date, a
 VALUES
 (1, 1, 2, now(), 970.0),
 (1, 2, 1, now(), 475.0);
+
+
+CREATE TABLE users (
+    user_id serial PRIMARY KEY,
+    username CHARACTER VARYING UNIQUE NOT NULL,
+    password CHARACTER VARYING NOT NULL,
+    enabled BOOLEAN
+);
+
+INSERT INTO users(user_id, username, password, enabled)
+VALUES
+(1, 'admin@example.com', crypt('keymaster', gen_salt('md5')), FALSE),
+(2, 'guest@example.com', crypt('anonymous', gen_salt('md5')), FALSE);

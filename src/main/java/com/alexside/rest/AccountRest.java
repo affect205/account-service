@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.security.Principal;
 import java.util.List;
 
 /**
@@ -21,14 +22,14 @@ public class AccountRest {
 
     @GET
     @Path("/all")
-    public List<AccountDTO> getAll() {
+    public List<AccountDTO> getAll(Principal principal) {
         List<AccountDTO> result = accountService.getAll();
         return result;
     }
 
     @GET
     @Path("{number}")
-    public AccountDTO getByNumber(@PathParam("number") @DefaultValue("") String number) {
+    public AccountDTO getByNumber(@PathParam("number") @DefaultValue("") String number, Principal principal) {
         AccountDTO result = accountService.getByNumber(number);
         return result;
     }
