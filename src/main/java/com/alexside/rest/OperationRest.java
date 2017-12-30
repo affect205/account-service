@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.security.Principal;
 import java.util.List;
 
 /**
@@ -23,7 +22,7 @@ public class OperationRest {
 
     @GET
     @Path("{number}")
-    public List<OperationDTO> getByNumber(@PathParam("number") @DefaultValue("") String number, Principal principal) {
+    public List<OperationDTO> getByNumber(@PathParam("number") @DefaultValue("") String number) {
         List<OperationDTO> result = operationService.getByNumber(number);
         return result;
     }
@@ -31,7 +30,7 @@ public class OperationRest {
     @POST
     @Path("transfer")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Boolean doTransfer(TransferDTO dto, Principal principal) {
+    public Boolean doTransfer(TransferDTO dto) {
         boolean success = operationService.doTransfer(dto);
         return success;
     }
