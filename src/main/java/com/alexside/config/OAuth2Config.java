@@ -14,7 +14,7 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
-import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
 import static com.alexside.config.ResourceServerConfig.RESOURCE_ID;
 
@@ -32,9 +32,6 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private AuthenticationManager authManager;
 
-    @Autowired
-    private TokenStore tokenStore;
-
     @Value("${sec.oauth.tokenTimeout:3600}")
     private int expiration;
 
@@ -44,10 +41,15 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     }
 
     @Override
+    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+        security
+                .tokenKeyAccess("permitAll()")
+                .checkTokenAccess("isAuthenticated()");
+    }
+
+    @Override
     public void configure(AuthorizationServerEndpointsConfigurer configurer) throws Exception {
         configurer.authenticationManager(authManager);
-        configurer.userDetailsService(userDetailsService);
-        configurer.tokenStore(tokenStore);
     }
 
     @Override
