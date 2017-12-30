@@ -48,5 +48,5 @@ CREATE TABLE users (
 
 INSERT INTO users(user_id, username, password, enabled)
 VALUES
-(1, 'admin@example.com', crypt('keymaster', gen_salt('md5')), FALSE),
-(2, 'guest@example.com', crypt('anonymous', gen_salt('md5')), FALSE);
+(1, 'admin@example.com', crypt('keymaster', gen_salt('bf', 8)), FALSE),
+(2, 'guest@example.com', crypt('anonymous', gen_salt('bf', 8)), FALSE);

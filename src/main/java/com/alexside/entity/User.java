@@ -33,8 +33,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-
+        List<GrantedAuthority> authorities = new ArrayList<>();
         return authorities;
     }
 
