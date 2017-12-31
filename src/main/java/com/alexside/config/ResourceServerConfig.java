@@ -12,7 +12,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
-    public static final String RESOURCE_ID = "JERSEY_RSRC";
+    public static final String RESOURCE_ID = "JERSEY_API";
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {

@@ -11,10 +11,10 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
  */
 @EnableResourceServer
 @SpringBootApplication
-public class AccountServiceApplication extends SpringBootServletInitializer {
+public class Application extends SpringBootServletInitializer {
 	public static void main(String[] args) {
-		new AccountServiceApplication()
-				.configure(new SpringApplicationBuilder(AccountServiceApplication.class))
+		new Application()
+				.configure(new SpringApplicationBuilder(Application.class))
 				.run(args);
 	}
 }
