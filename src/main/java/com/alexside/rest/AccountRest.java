@@ -32,4 +32,10 @@ public class AccountRest {
         AccountDTO result = accountService.getByNumber(number);
         return result;
     }
+
+    @GET
+    @Path("/test")
+    public String test() {
+        return "test";
+    }
 }
